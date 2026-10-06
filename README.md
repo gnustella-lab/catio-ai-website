@@ -12,6 +12,8 @@ From this repository's root, run `python -m http.server 8080` and open http://lo
 
 The header and hero fit one small viewport height (`100svh`), with viewport-relative typography, mascot sizing and compact spacing. Keep `--header-height` aligned with the header at each breakpoint. The label, mascot and speech notes remain in normal document flow; narrow screens place the mascot beside stacked notes, and short landscape screens use a two-column hero. Content can grow naturally for unusually small windows or enlarged text rather than being clipped or hidden. When changing the first fold, check 1360×659, desktop and mobile portrait/landscape, and both sides of the 900px width and 500px/620px height breakpoints.
 
+Internal links scroll to their destination and move keyboard focus without adding URL fragments or history entries. Incoming fragment URLs still reach the requested section, then JavaScript removes the fragment while preserving the pathname and query string. Native same-document fragment changes are also cleaned. Smooth scrolling follows the reduced-motion preference.
+
 ## GitHub Pages
 
 In repository Settings → Pages, select **Deploy from a branch**, branch **main**, folder **/ (root)**, then save. The site files are at the repository root and require no build step.

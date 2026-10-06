@@ -17,3 +17,35 @@ document.querySelectorAll('[data-preset]').forEach(button => {
     document.querySelectorAll('[data-preset]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
   });
 });
+
+function navigateToSection(fragment, behavior = 'auto') {
+  const target = fragment === '#' ? document.documentElement : document.getElementById(fragment.slice(1));
+  if (!target) return;
+  target.scrollIntoView({ behavior, block: 'start' });
+  if (target === document.documentElement) {
+    document.querySelector('header .brand').focus({ preventScroll: true });
+  } else {
+    if (!target.hasAttribute('tabindex')) target.tabIndex = -1;
+    target.focus({ preventScroll: true });
+  }
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', event => {
+    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    navigateToSection(link.getAttribute('href'));
+  });
+});
+
+if (location.href.includes('#')) {
+  const fragment = location.hash || '#';
+  window.addEventListener('load', () => {
+    navigateToSection(fragment, 'instant');
+    history.replaceState(history.state, '', location.pathname + location.search);
+  }, { once: true });
+}
+
+window.addEventListener('hashchange', () => {
+  history.replaceState(history.state, '', location.pathname + location.search);
+});
