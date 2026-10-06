@@ -10,7 +10,7 @@ Site copy and metadata use no em or en dashes. Use natural sentence punctuation 
 
 From this repository's root, run `python -m http.server 8080` and open http://localhost:8080.
 
-The hero keeps its label, mascot and speech notes in normal document flow to avoid overlap. Speech notes wrap on narrower desktop layouts and stack on mobile. When changing their spacing, check desktop and mobile widths, including both sides of the 600px and 900px breakpoints.
+The header and hero fit one small viewport height (`100svh`), with viewport-relative typography, mascot sizing and compact spacing. Keep `--header-height` aligned with the header at each breakpoint. The label, mascot and speech notes remain in normal document flow; narrow screens place the mascot beside stacked notes, and short landscape screens use a two-column hero. Content can grow naturally for unusually small windows or enlarged text rather than being clipped or hidden. When changing the first fold, check 1360×659, desktop and mobile portrait/landscape, and both sides of the 900px width and 500px/620px height breakpoints.
 
 ## GitHub Pages
 
