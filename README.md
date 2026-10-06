@@ -4,6 +4,8 @@ English coming-soon presentation, using original Catio assets and development sc
 
 The presentation files were copied from `gnustella-lab/catio-ai`, directory `website/`. This repository contains only the public site; the Android app, backend and private repository history are not included.
 
+Site copy and metadata use no em or en dashes. Use natural sentence punctuation and `/` between section numbers and labels; preserve hyphens in compound words.
+
 ## Local preview
 
 From this repository's root, run `python -m http.server 8080` and open http://localhost:8080.
